@@ -4,8 +4,15 @@ public class Scoreboard
 {
     public Game? StartNewGame(string homeTeam, string awayTeam)
     {
-        var game = Game.Create(homeTeam, awayTeam);
-        return game;
+        try
+        {
+            var game = Game.Create(homeTeam, awayTeam);
+            return game;
+        }
+        catch (ArgumentException) // todo: it would be better to use own custom exception or the 'Result' pattern (as result of Game.Create)
+        {
+            return default;
+        }
     }
 
     public void UpdateScore(Guid gameId, int homeScore, int awayScore)
