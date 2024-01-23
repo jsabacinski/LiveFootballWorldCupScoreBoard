@@ -38,7 +38,7 @@ public  class GameTests
     }
 
     [Test]
-    public void SetScore_ValidInput_CreatedObjectIsReturned()
+    public void SetScore_ValidInput_ScoreIsUpdated()
     {
         // arrange
         var game = Game.Create("HomeTeam", "AwayTeam");
