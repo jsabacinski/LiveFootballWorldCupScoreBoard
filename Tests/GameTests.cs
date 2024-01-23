@@ -22,4 +22,18 @@ public  class GameTests
         Assert.That(game.IsInProgress, Is.True);
         Assert.That(game.StartedOn != default, Is.True);
     }
+
+    [Test]
+    [TestCase(null, null)]
+    [TestCase("Home", null)]
+    [TestCase(null, "Away")]
+    [TestCase("Same", "Same")]
+    [TestCase("same", "Same")]
+    public void Create_InvalidInput_ThrowsArgumentException(string? homeTeam, string? awayTeam)
+    {
+        Assert.Throws<ArgumentException>(delegate ()
+        {
+            var _ = Game.Create(homeTeam, awayTeam);
+        });
+    }
 }

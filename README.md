@@ -18,3 +18,7 @@ The scoreboard supports the following operations:
   - Library - Domain logic (probably 2 classes: Game and Scoreboard)
   - Test - Unit Tests for Library
 - I will document here my considerations
+
+## Implementation
+- I assume that you can not start a game, which two teams with same name play in (case insensitive)
+- I use string for teams (which can be called a code smell [primitive obsession], but there is requirement to keep the solution simple)
