@@ -128,7 +128,7 @@ public class ScoreboardTests
         // Arrange
         var scoreboard = new Scoreboard();
         var game = scoreboard.StartNewGame("Mexico", "Canada");
-        var finishResult = scoreboard.FinishGame(game.Id);
+        scoreboard.FinishGame(game.Id);
 
         // Act
         var result = scoreboard.GetGamesSummary();
