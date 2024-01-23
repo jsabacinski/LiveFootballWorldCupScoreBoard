@@ -41,6 +41,7 @@ public class Game
 
     public bool SetScore(int newHomeScore, int newAwayScore)
     {
+        if (!IsInProgress) return false;
         if (newHomeScore < 0) return false;
         if (newAwayScore < 0) return false;
 
