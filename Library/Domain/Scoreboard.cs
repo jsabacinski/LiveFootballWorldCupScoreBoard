@@ -27,11 +27,16 @@ public class Scoreboard
 
     public bool FinishGame(Guid gameId)
     {
-        throw new NotImplementedException();
+        var gameToFinish = _games.FirstOrDefault(x => x.Id == gameId);
+        if (gameToFinish is null) return false;
+
+        gameToFinish.Finish();
+        return true;
     }
 
     public IEnumerable<Game> GetGamesSummary()
     {
-        return _games;
+        return _games
+            .Where(x => x.IsInProgress);
     }
 }
