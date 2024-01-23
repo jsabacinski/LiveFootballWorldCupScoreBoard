@@ -25,6 +25,7 @@ public class Game
     public string AwayTeam { get; init; }
     public int HomeScore { get; private set; }
     public int AwayScore { get; private set; }
+    public int TotalScore => HomeScore + AwayScore;
     public DateTimeOffset StartedOn { get; init; }
     public bool IsInProgress { get; private set; }
 
