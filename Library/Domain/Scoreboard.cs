@@ -5,6 +5,9 @@ public class Scoreboard
     private readonly List<Game> _games = new();
     public Game? StartNewGame(string homeTeam, string awayTeam)
     {
+        if (TeamIsCurrentlyPlaying(homeTeam)) return default;
+        if (TeamIsCurrentlyPlaying(awayTeam)) return default;
+
         try
         {
             var game = Game.Create(homeTeam, awayTeam);
@@ -38,5 +41,12 @@ public class Scoreboard
     {
         return _games
             .Where(x => x.IsInProgress);
+    }
+
+    private bool TeamIsCurrentlyPlaying(string team)
+    {
+        return _games
+            .Where(g => g.IsInProgress)
+            .Any(x => x.AwayTeam == team || x.HomeTeam == team);
     }
 }
