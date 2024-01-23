@@ -2,11 +2,13 @@
 
 public class Scoreboard
 {
+    private readonly List<Game> _games = new();
     public Game? StartNewGame(string homeTeam, string awayTeam)
     {
         try
         {
             var game = Game.Create(homeTeam, awayTeam);
+            _games.Add(game);
             return game;
         }
         catch (ArgumentException) // todo: it would be better to use own custom exception or the 'Result' pattern (as result of Game.Create)
@@ -27,6 +29,6 @@ public class Scoreboard
 
     public IEnumerable<Game> GetGamesSummary()
     {
-        throw new NotImplementedException();
+        return _games;
     }
 }
