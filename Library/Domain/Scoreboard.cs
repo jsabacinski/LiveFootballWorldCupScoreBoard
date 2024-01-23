@@ -17,7 +17,7 @@ public class Scoreboard
         }
     }
 
-    public void UpdateScore(Guid gameId, int homeScore, int awayScore)
+    public bool UpdateScore(Guid gameId, int homeScore, int awayScore)
     {
         throw new NotImplementedException();
     }

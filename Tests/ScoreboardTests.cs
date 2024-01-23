@@ -44,4 +44,22 @@ public class ScoreboardTests
         Assert.That(result.Count(), Is.EqualTo(1));
         Assert.That(result.Contains(game), Is.True);
     }
+
+    [Test]
+    public void UpdateScore_GameAdded_AddedGameShouldBeInSummary()
+    {
+        // Arrange
+        var scoreboard = new Scoreboard();
+        var game = scoreboard.StartNewGame("Mexico", "Canada");
+        var newHomeScore = 3;
+        var newAwayScore = 2;
+
+        // Act
+        var result = scoreboard.UpdateScore(game.Id, newHomeScore, newAwayScore);
+
+        // Assert
+        Assert.That(result, Is.True);
+        Assert.That(game.HomeScore, Is.EqualTo(newHomeScore));
+        Assert.That(game.AwayScore, Is.EqualTo(newAwayScore));
+    }
 }
