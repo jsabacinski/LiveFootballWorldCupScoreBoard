@@ -53,4 +53,22 @@ public  class GameTests
         Assert.That(game.HomeScore, Is.EqualTo(newHomeScore));
         Assert.That(game.AwayScore, Is.EqualTo(newAwayScore));
     }
+
+    [Test]
+    [TestCase(-1, 0)]
+    [TestCase(0, -1)]
+    [TestCase(-1, -1)]
+    public void SetScore_NegativeScore_SetScoreUnsuccessful(int newHomeScore, int newAwayScore)
+    {
+        // arrange
+        var game = Game.Create("HomeTeam", "AwayTeam");
+
+        // act
+        var result = game.SetScore(newHomeScore, newAwayScore);
+
+        // assert
+        Assert.That(result, Is.EqualTo(false));
+        Assert.That(game.HomeScore, Is.EqualTo(0));
+        Assert.That(game.AwayScore, Is.EqualTo(0));
+    }
 }

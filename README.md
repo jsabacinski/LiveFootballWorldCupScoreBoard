@@ -27,3 +27,4 @@ The scoreboard supports the following operations:
   - this makes sense in situations, when some SetScore commands 'get lost' on the way
   - I assume to update the score with the most up to date score
 - I assume it is possible to go down with the score (3:3 to 1:1) e.g. because of some referee's decision
+- I assume score cannot be negative
