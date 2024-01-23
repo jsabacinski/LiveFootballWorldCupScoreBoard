@@ -25,7 +25,7 @@ public class Scoreboard
         return gameToUpdate.SetScore(homeScore, awayScore);
     }
 
-    public void FinishGame(Guid gameId)
+    public bool FinishGame(Guid gameId)
     {
         throw new NotImplementedException();
     }
