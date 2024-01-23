@@ -28,3 +28,4 @@ The scoreboard supports the following operations:
   - I assume to update the score with the most up to date score
 - I assume it is possible to go down with the score (3:3 to 1:1) e.g. because of some referee's decision
 - I assume score cannot be negative
+- I assume you cannot update score for a finished game
