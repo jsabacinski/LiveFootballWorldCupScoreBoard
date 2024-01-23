@@ -19,6 +19,7 @@ public  class GameTests
         Assert.That(game.AwayScore, Is.EqualTo(0));
         Assert.That(game.HomeTeam, Is.EqualTo(homeTeam));
         Assert.That(game.AwayTeam, Is.EqualTo(awayTeam));
-        Assert.IsTrue(game.IsInProgress);
+        Assert.That(game.IsInProgress, Is.True);
+        Assert.That(game.StartedOn != default, Is.True);
     }
 }

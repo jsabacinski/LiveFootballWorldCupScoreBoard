@@ -17,5 +17,12 @@ public class Game
 
     protected Game(string homeTeam, string awayTeam)
     {
+        Id = Guid.NewGuid();
+        HomeTeam = homeTeam;
+        AwayTeam = awayTeam;
+        HomeScore = 0;
+        AwayScore = 0;
+        StartedOn = DateTimeOffset.UtcNow;
+        IsInProgress = true;
     }
 }
