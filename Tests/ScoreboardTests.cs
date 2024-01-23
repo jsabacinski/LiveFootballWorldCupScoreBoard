@@ -16,4 +16,17 @@ public class ScoreboardTests
         // Assert
         Assert.NotNull(game);
     }
+
+    [Test]
+    public void StartNewGame_InvalidInputTwoSameTeams_ReturnsNull()
+    {
+        // Arrange
+        var scoreboard = new Scoreboard();
+
+        // Act
+        var game = scoreboard.StartNewGame("Mexico", "Mexico");
+
+        // Assert
+        Assert.Null(game);
+    }
 }
