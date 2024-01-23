@@ -62,4 +62,19 @@ public class ScoreboardTests
         Assert.That(game.HomeScore, Is.EqualTo(newHomeScore));
         Assert.That(game.AwayScore, Is.EqualTo(newAwayScore));
     }
+
+    [Test]
+    public void UpdateScore_GameNotAdded_ReturnsFalse()
+    {
+        // Arrange
+        var scoreboard = new Scoreboard();
+        var newHomeScore = 3;
+        var newAwayScore = 2;
+
+        // Act
+        var result = scoreboard.UpdateScore(Guid.NewGuid(), newHomeScore, newAwayScore);
+
+        // Assert
+        Assert.That(result, Is.False);
+    }
 }
