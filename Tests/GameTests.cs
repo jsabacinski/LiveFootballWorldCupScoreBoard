@@ -71,4 +71,19 @@ public  class GameTests
         Assert.That(game.HomeScore, Is.EqualTo(0));
         Assert.That(game.AwayScore, Is.EqualTo(0));
     }
+
+    [Test]
+    public void Finish_GameInProgress_IsInProgressSetToFalse()
+    {
+        // arrange
+        var homeTeam = "HomeTeam";
+        var awayTeam = "AwayTeam";
+        var game = Game.Create(homeTeam, awayTeam);
+
+        // act
+        game.Finish();
+
+        // assert
+        Assert.IsFalse(game.IsInProgress);
+    }
 }

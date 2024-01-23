@@ -48,4 +48,9 @@ public class Game
         AwayScore = newAwayScore;
         return true;
     }
+
+    public void Finish()
+    {
+        throw new NotImplementedException();
+    }
 }
