@@ -73,6 +73,23 @@ public  class GameTests
     }
 
     [Test]
+    public void SetScore_FinishedGame_YouCantUpdateScoreForFinishedGame()
+    {
+        // arrange
+        var game = Game.Create("HomeTeam", "AwayTeam");
+        game.SetScore(3, 3);
+        game.Finish();
+
+        // act
+        var result = game.SetScore(4, 4);
+
+        // assert
+        Assert.That(result, Is.EqualTo(false));
+        Assert.That(game.HomeScore, Is.EqualTo(3));
+        Assert.That(game.AwayScore, Is.EqualTo(3));
+    }
+
+    [Test]
     public void Finish_GameInProgress_IsInProgressSetToFalse()
     {
         // arrange
