@@ -22,3 +22,8 @@ The scoreboard supports the following operations:
 ## Implementation
 - I assume that you can not start a game, which two teams with same name play in (case insensitive)
 - I use string for teams (which can be called a code smell [primitive obsession], but there is requirement to keep the solution simple)
+- I assume you are allowed to change score by more then one score at once
+  - e.g. you can go from 0:0 to 3:2 in one step
+  - this makes sense in situations, when some SetScore commands 'get lost' on the way
+  - I assume to update the score with the most up to date score
+- I assume it is possible to go down with the score (3:3 to 1:1) e.g. because of some referee's decision

@@ -36,4 +36,21 @@ public  class GameTests
             var _ = Game.Create(homeTeam, awayTeam);
         });
     }
+
+    [Test]
+    public void SetScore_ValidInput_CreatedObjectIsReturned()
+    {
+        // arrange
+        var game = Game.Create("HomeTeam", "AwayTeam");
+        var newHomeScore = 3;
+        var newAwayScore = 3;
+
+        // act
+        var result = game.SetScore(newHomeScore, newAwayScore);
+
+        // assert
+        Assert.That(result, Is.EqualTo(true));
+        Assert.That(game.HomeScore, Is.EqualTo(newHomeScore));
+        Assert.That(game.AwayScore, Is.EqualTo(newAwayScore));
+    }
 }

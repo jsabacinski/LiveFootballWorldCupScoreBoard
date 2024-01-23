@@ -38,4 +38,9 @@ public class Game
         StartedOn = DateTimeOffset.UtcNow;
         IsInProgress = true;
     }
+
+    public bool SetScore(int newHomeScore, int newAwayScore)
+    {
+        throw new NotImplementedException();
+    }
 }
