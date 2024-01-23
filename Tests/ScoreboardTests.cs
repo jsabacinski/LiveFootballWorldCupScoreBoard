@@ -79,6 +79,19 @@ public class ScoreboardTests
     }
 
     [Test]
+    public void FinishGame_GameNotAdded_GameFinished()
+    {
+        // Arrange
+        var scoreboard = new Scoreboard();
+
+        // Act
+        var result = scoreboard.FinishGame(Guid.NewGuid());
+
+        // Assert
+        Assert.That(result, Is.False);
+    }
+
+    [Test]
     public void GetGamesSummary_GameAdded_AddedGameShouldBeInSummary()
     {
         // Arrange
