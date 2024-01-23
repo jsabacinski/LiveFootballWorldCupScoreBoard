@@ -2,7 +2,7 @@
 
 public class Game
 {
-    public static Game Start(string homeTeam, string awayTeam)
+    public static Game Create(string homeTeam, string awayTeam)
     {
         return new Game(homeTeam, awayTeam);
     }
