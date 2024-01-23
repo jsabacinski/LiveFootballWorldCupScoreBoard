@@ -19,7 +19,7 @@ The scoreboard supports the following operations:
   - Test - Unit Tests for Library
 - I will document here my considerations
 
-## Implementation
+## Implementation - Game
 - I assume that you can not start a game, which two teams with same name play in (case insensitive)
 - I use string for teams (which can be called a code smell [primitive obsession], but there is requirement to keep the solution simple)
 - I assume you are allowed to change score by more then one score at once
@@ -29,3 +29,5 @@ The scoreboard supports the following operations:
 - I assume it is possible to go down with the score (3:3 to 1:1) e.g. because of some referee's decision
 - I assume score cannot be negative
 - I assume you cannot update score for a finished game
+
+## Implementation - Scoreboard
