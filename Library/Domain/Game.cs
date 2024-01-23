@@ -41,6 +41,8 @@ public class Game
 
     public bool SetScore(int newHomeScore, int newAwayScore)
     {
-        throw new NotImplementedException();
+        HomeScore = newHomeScore;
+        AwayScore = newAwayScore;
+        return true;
     }
 }
