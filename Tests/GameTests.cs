@@ -55,6 +55,22 @@ public  class GameTests
     }
 
     [Test]
+    public void SetScore_ValidInput_TotalScoreIsSumOfHomeScoreAndAwayScore()
+    {
+        // arrange
+        var game = Game.Create("HomeTeam", "AwayTeam");
+        var newHomeScore = 5;
+        var newAwayScore = 8;
+        var expectedTotalScore = 13;
+
+        // act
+        var result = game.SetScore(newHomeScore, newAwayScore);
+
+        // assert
+        Assert.That(game.TotalScore, Is.EqualTo(expectedTotalScore));
+    }
+
+    [Test]
     [TestCase(-1, 0)]
     [TestCase(0, -1)]
     [TestCase(-1, -1)]
