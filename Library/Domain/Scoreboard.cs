@@ -40,7 +40,9 @@ public class Scoreboard
     public IEnumerable<Game> GetGamesSummary()
     {
         return _games
-            .Where(x => x.IsInProgress);
+            .Where(x => x.IsInProgress)
+            .OrderByDescending(x => x.TotalScore)
+                .ThenByDescending(x => x.StartedOn);
     }
 
     private bool TeamIsCurrentlyPlaying(string team)
