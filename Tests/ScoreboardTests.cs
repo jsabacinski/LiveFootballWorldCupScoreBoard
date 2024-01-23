@@ -136,4 +136,41 @@ public class ScoreboardTests
         // Assert
         Assert.That(result.Count(), Is.EqualTo(0));
     }
+
+    [Test]
+    public void CodingExerciseExample()
+    {
+        // Arrange 
+        var scoreboard = new Scoreboard();
+
+        var game1 = scoreboard.StartNewGame("Mexico", "Canada");
+        var game2 = scoreboard.StartNewGame("Spain", "Brazil");
+        var game3 = scoreboard.StartNewGame("Germany", "France");
+        var game4 = scoreboard.StartNewGame("Uruguay", "Italy");
+        var game5 = scoreboard.StartNewGame("Argentina", "Australia");
+
+        var expectedResult = new List<Game>
+        {
+            game4,
+            game2,
+            game1,
+            game5,
+            game3
+        };
+
+        var expectedOrderedGameIds = expectedResult.Select(x => x.Id);
+
+        scoreboard.UpdateScore(game1.Id, 0, 5);
+        scoreboard.UpdateScore(game2.Id, 10, 2);
+        scoreboard.UpdateScore(game3.Id, 2, 2);
+        scoreboard.UpdateScore(game4.Id, 6, 6);
+        scoreboard.UpdateScore(game5.Id, 3, 1);
+
+        // Act
+        var result = scoreboard.GetGamesSummary();
+        var resultGameIds = result.Select(x => x.Id);
+
+        // Assert
+        Assert.That(resultGameIds, Is.EqualTo(expectedOrderedGameIds));
+    }
 }
