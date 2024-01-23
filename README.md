@@ -31,3 +31,8 @@ The scoreboard supports the following operations:
 - I assume you cannot update score for a finished game
 
 ## Implementation - Scoreboard
+- I used a List to store Games, as suggested in the task description
+- I used soft delete for 'finishing a game' - so it will grow infinitely, which is probably bad for an in memory collection in real life scenario, but would we use an in memory collection in real world scenario? - alternative would be to remove a game from the list
+- in real life I would probably provide some method to add the scoreboard to the DI container, it would force me use interface, at least for the Scoreboard class
+- Scoreboard class is not thread-safe, it can cause problems in a multi-threaded application
+- Before starting I was considering splitting the read and write models (e.g. separate list for adding and editing games and separate list for querying the data which would be updated via events), but I wouldn't have enough time and the solution was supposed to be as simple as possible, so I didn't go for it. 
