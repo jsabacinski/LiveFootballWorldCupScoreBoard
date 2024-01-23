@@ -51,6 +51,6 @@ public class Game
 
     public void Finish()
     {
-        throw new NotImplementedException();
+        IsInProgress = false;
     }
 }
