@@ -105,4 +105,19 @@ public class ScoreboardTests
         Assert.That(result.Count(), Is.EqualTo(1));
         Assert.That(result.Contains(game), Is.True);
     }
+
+    [Test]
+    public void GetGamesSummary_GameFinished_AddedGameShouldNotBeInSummary()
+    {
+        // Arrange
+        var scoreboard = new Scoreboard();
+        var game = scoreboard.StartNewGame("Mexico", "Canada");
+        var finishResult = scoreboard.FinishGame(game.Id);
+
+        // Act
+        var result = scoreboard.GetGamesSummary();
+
+        // Assert
+        Assert.That(result.Count(), Is.EqualTo(0));
+    }
 }
