@@ -19,7 +19,10 @@ public class Scoreboard
 
     public bool UpdateScore(Guid gameId, int homeScore, int awayScore)
     {
-        throw new NotImplementedException();
+        var gameToUpdate = _games.FirstOrDefault(x => x.Id == gameId);
+        if (gameToUpdate is null) return false;
+
+        return gameToUpdate.SetScore(homeScore, awayScore);
     }
 
     public void FinishGame(Guid gameId)
