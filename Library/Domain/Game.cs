@@ -4,6 +4,19 @@ public class Game
 {
     public static Game Create(string homeTeam, string awayTeam)
     {
+        if (string.IsNullOrWhiteSpace(homeTeam))
+        {
+            throw new ArgumentException(nameof(homeTeam));
+        }
+        if (string.IsNullOrWhiteSpace(awayTeam))
+        {
+            throw new ArgumentException(nameof(awayTeam));
+        }
+        if (homeTeam.Equals(awayTeam, StringComparison.InvariantCultureIgnoreCase))
+        {
+            throw new ArgumentException("A team cannot play against itself");
+        }
+
         return new Game(homeTeam, awayTeam);
     }
     
