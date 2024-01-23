@@ -4,7 +4,8 @@ public class Scoreboard
 {
     public Game? StartNewGame(string homeTeam, string awayTeam)
     {
-        throw new NotImplementedException();
+        var game = Game.Create(homeTeam, awayTeam);
+        return game;
     }
 
     public void UpdateScore(Guid gameId, int homeScore, int awayScore)
