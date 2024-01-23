@@ -18,6 +18,22 @@ public class ScoreboardTests
     }
 
     [Test]
+    [TestCase("Mexico", "NotPlaying")]
+    [TestCase("NotPlaying", "Mexico")]
+    public void StartNewGame_GameWithTeamCurrentlyPlaying_ReturnsNull(string homeTeam, string awayTeam)
+    {
+        // Arrange
+        var scoreboard = new Scoreboard();
+        scoreboard.StartNewGame("Mexico", "Canada");
+        
+        // Act
+        var game = scoreboard.StartNewGame(homeTeam, awayTeam);
+
+        // Assert
+        Assert.Null(game);
+    }
+
+    [Test]
     public void StartNewGame_InvalidInputTwoSameTeams_ReturnsNull()
     {
         // Arrange
